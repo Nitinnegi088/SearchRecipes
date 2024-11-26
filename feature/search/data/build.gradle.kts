@@ -39,6 +39,7 @@ android {
 dependencies {
 
     implementation(project(":feature:search:domain"))
+    implementation(project(":common"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,5 +53,7 @@ dependencies {
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.kapt)
 
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.mockito)
 
 }

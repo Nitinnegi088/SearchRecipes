@@ -1,5 +1,5 @@
-
 package com.example.search.data.di
+
 import com.example.domain.repository.SearchRepository
 import com.example.search.data.Repository.SearchRepoImpl
 import com.example.search.data.remote.SearchApiService
@@ -20,7 +20,6 @@ object SearchDataModule{
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit{
-
         return Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

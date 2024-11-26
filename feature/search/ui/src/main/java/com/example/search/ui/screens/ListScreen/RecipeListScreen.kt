@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -41,6 +42,7 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.common.navigation.NavigationRoute
 import com.example.common.utils.UiText
+import com.example.search.ui.R
 import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -67,7 +69,7 @@ fun RecipeListScreen(
     Scaffold(topBar = {
         TextField(placeholder = {
             Text(
-                text = "Search here...", style = MaterialTheme.typography.bodySmall
+                text = stringResource(R.string.hint_message_search), style = MaterialTheme.typography.bodySmall
             )
         }, value = query.value, onValueChange = {
             query.value = it
@@ -89,7 +91,6 @@ fun RecipeListScreen(
                 CircularProgressIndicator()
             }
         }
-
         if (uiState.value.error !is UiText.Idle) {
             Box(
                 modifier = Modifier
@@ -99,7 +100,6 @@ fun RecipeListScreen(
                 Text(text = uiState.value.error.getString())
             }
         }
-
         uiState.value.data?.let { list ->
 
             LazyColumn(

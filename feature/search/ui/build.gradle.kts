@@ -63,4 +63,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.coil.compose)
 
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.mockito)
+
 }

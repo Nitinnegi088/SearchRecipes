@@ -60,7 +60,6 @@ fun RecipeDetailsScreen(
                 }
             }
     }
-
     Scaffold(topBar = {
         TopAppBar(title = {
             Text(
@@ -84,7 +83,6 @@ fun RecipeDetailsScreen(
                 CircularProgressIndicator()
             }
         }
-
         if (uiState.value.error !is UiText.Idle) {
             Box(
                 modifier = Modifier
@@ -94,7 +92,6 @@ fun RecipeDetailsScreen(
                 Text(text = uiState.value.error.getString())
             }
         }
-
         uiState.value.data?.let { recipeDetails ->
             Column(
                 modifier = Modifier
@@ -134,24 +131,14 @@ fun RecipeDetailsScreen(
                                         .background(color = Color.White, shape = CircleShape)
                                         .clip(CircleShape)
                                 )
-
                                 Text(text = it.second, style = MaterialTheme.typography.bodyMedium)
                             }
                         }
-
                     }
-
                 }
-
             }
-
-
         }
-
-
     }
-
-
 }
 
 fun getIngredientsImageUrl(name: String) =
