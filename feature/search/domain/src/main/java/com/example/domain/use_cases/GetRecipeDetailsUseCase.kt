@@ -10,7 +10,6 @@ import javax.inject.Inject
 
 class GetRecipeDetailsUseCase @Inject constructor(private val searchRepository: SearchRepository) {
 
-
     operator fun invoke(id: String) = flow {
         emit(NetworkResult.Loading())
         val response = searchRepository.getRecipeDetails(id)
@@ -22,5 +21,4 @@ class GetRecipeDetailsUseCase @Inject constructor(private val searchRepository: 
     }.catch {
         emit(NetworkResult.Error(it.message))
     }.flowOn(Dispatchers.IO)
-
 }

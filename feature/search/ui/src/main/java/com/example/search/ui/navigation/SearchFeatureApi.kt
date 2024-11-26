@@ -53,8 +53,6 @@ class SearchFeatureApiImpl : SearchFeatureApi {
                      navHostController = navHostController
                 )
             }
-
         }
-
     }
 }

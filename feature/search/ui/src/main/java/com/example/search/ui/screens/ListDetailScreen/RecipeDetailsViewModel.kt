@@ -24,12 +24,10 @@ class RecipeDetailsViewModel @Inject constructor(
 ) :
     ViewModel() {
 
-    private val _uiState =
-        MutableStateFlow(RecipeDetails.UiState())
+    private val _uiState = MutableStateFlow(RecipeDetails.UiState())
     val uiState: StateFlow<RecipeDetails.UiState> get() = _uiState.asStateFlow()
 
-    private val _navigation =
-        Channel<RecipeDetails.Navigation>()
+    private val _navigation = Channel<RecipeDetails.Navigation>()
     val navigation: Flow<RecipeDetails.Navigation> get() = _navigation.receiveAsFlow()
 
     fun onEvent(event: RecipeDetails.Event) {
@@ -54,23 +52,18 @@ class RecipeDetailsViewModel @Inject constructor(
                         )
                     }
                 }
-
                 is NetworkResult.Loading -> _uiState.update {
                     RecipeDetails.UiState(
                         isLoading = true
                     )
                 }
-
                 is NetworkResult.Success -> _uiState.update {
                     RecipeDetails.UiState(
                         data = result.data
                     )
                 }
-
             }
-
         }.launchIn(viewModelScope)
-
 }
 
 object RecipeDetails {
@@ -85,11 +78,7 @@ object RecipeDetails {
     }
 
     sealed interface Event {
-
         data class FetchRecipeDetails(val id: String) : Event
-
         data object GoToRecipeListScreen : Event
-
     }
-
 }

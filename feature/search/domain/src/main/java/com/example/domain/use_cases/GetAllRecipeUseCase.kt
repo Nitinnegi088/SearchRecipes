@@ -22,5 +22,4 @@ class GetAllRecipeUseCase @Inject constructor(private val searchRepository: Sear
     }.catch {
         emit(NetworkResult.Error(it.message.toString()))
     }.flowOn(Dispatchers.IO)
-
 }

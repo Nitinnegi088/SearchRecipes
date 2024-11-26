@@ -12,11 +12,10 @@ fun List<RecipeData>.toDomain(): List<Recipe> = map {
         strMealThumb = it.strMealThumb?: "",
         strCategory = it.strCategory?: "",
         strTags = it.strTags ?: "",
-        strYoutube = it.strYoutube,
+        strYoutube = it.strYoutube ?: "",
         strInstructions = it.strInstructions?: ""
     )
 }
-
 
 fun RecipeData.toDomain(): RecipeDetails {
     return RecipeDetails(
@@ -26,7 +25,7 @@ fun RecipeData.toDomain(): RecipeDetails {
         strMealThumb = strMealThumb?: "",
         strCategory = strCategory?: "",
         strTags = strTags ?: "",
-        strYoutube = strYoutube,
+        strYoutube = strYoutube ?: "",
         strInstructions = strInstructions?: "",
         ingredientsPair = this.getIngredientPairsWithItsMeasure()
     )
